@@ -7,58 +7,45 @@
 
 
 import pandas as pd 
+import matplotlib.pyplot as plt
+import numpy as np 
+from sklearn.linear_model import LinearRegression
+import sys
 
+print("Linear Modeling in Python")
 
 # In[2]:
 
-
-df = pd.read_csv('regrex1 2.csv')
+datafile = sys.argv[1]
+df = pd.read_csv(datafile)
 
 
 # In[3]:
 
 
-import matplotlib.pyplot as plt
+df.head()
 
 
 # In[4]:
 
 
-df.head()
+df['x'].head()
 
 
 # In[5]:
 
 
-df['x'].head()
-
-
-# In[6]:
-
-
 df['y'].head()
 
 
-# In[7]:
+# In[6]:
 
 
 plt.scatter(df['x'], df['y'])
 plt.xlabel("x")
 plt.ylabel("y")
 plt.show()
-
-
-# In[8]:
-
-
-get_ipython().system('pip install scikit-learn')
-
-
-# In[9]:
-
-
-import numpy as np 
-from sklearn.linear_model import LinearRegression
+plt.savefig("Py_orig.png")
 
 
 # In[10]:
@@ -125,6 +112,7 @@ plt.plot(df['x'], y_pred)
 plt.xlabel("x")
 plt.ylabel("y")
 plt.show()
+plt.savefig("Py_lm.png")
 
 
 # In[ ]:
